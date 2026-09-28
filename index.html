@@ -41,13 +41,14 @@
     if(a[1]) a[1].href='https://github.com/CurlyCodeX/';
     if(a[2]) a[2].href='https://www.linkedin.com/in/phelicia-dsilva-200374283';
   }
+  
   const projects=[
     ['Churn Analysis & Customer Intelligence','End-to-end churn analytics for an OTT subscription platform, integrating subscriber data and 20+ KPIs to quantify churn, MRR leakage and CLTV impact.','https://github.com/CurlyCodeX/Churn-Analysis-Customer-Intelligence','View project'],
     ['Retail Sales Exploratory Data Analysis','Cleaned and analyzed retail sales data with Python and SQL, then developed an interactive Power BI dashboard for revenue, product, customer and regional insights.','https://github.com/CurlyCodeX/retail-sales-analytics-eda','View project'],
-    ['Epilepsy Detection Using EEG Signals','Ongoing deep learning research using the Bonn EEG dataset with a GNN + BiLSTM + BiGRU architecture to learn spatial and temporal EEG patterns.','https://github.com/CurlyCodeX/','View GitHub'],
-    ['Gen Z Career Aspirations Dashboard','Analyzed 5,300+ survey responses, cleaned and standardized the data, and built an executive dashboard with KPIs, charts and gender-based filtering.','https://github.com/CurlyCodeX/','View GitHub'],
-    ['Data Analytics Portfolio','A practical portfolio of analytics work built around Python, Pandas, SQL, Excel and Power BI, focused on turning raw data into business insights.','https://github.com/CurlyCodeX/','View GitHub'],
-    ['Analytics Learning Lab','Ongoing hands-on work across SQL, Excel, Power Query, DAX, data modeling and dashboard development for entry-level analytics roles.','https://github.com/CurlyCodeX/','View GitHub']
+    ['Epilepsy Detection Using EEG Signals','Ongoing deep learning research using the Bonn EEG dataset with a GNN + BiLSTM + BiGRU architecture to learn spatial and temporal EEG patterns.','https://github.com/CurlyCodeX/neurosense-ai-vision','Ongoing'],
+    ['Gen Z Career Aspirations Dashboard','Analyzed 5,300+ survey responses, cleaned and standardized the data, and built an executive dashboard with KPIs, charts and gender-based filtering.','https://github.com/CurlyCodeX/','Ongoing'],
+    ['Sales Forecasting App','Developed a Python-based sales forecasting application using Linear Regression to predict future sales from historical data. The project includes data processing, model training, predictions, and a simple user-facing application for sales forecasting.','https://github.com/CurlyCodeX/Sales_Forecasting_App','View GitHub'],
+    ['HandsMen Thread – E-Commerce','Developed a full-stack e-commerce web application for a mens fashion brand, featuring product browsing, user interaction, and an online shopping experience. The project focuses on building a user-friendly interface and implementing core e-commerce functionality.','https://github.com/CurlyCodeX/HandsMenThreadProject','View GitHub']
   ];
   const cards=[...doc.querySelectorAll('.planet-card')];
   cards.forEach((card,i)=>{
@@ -56,11 +57,60 @@
   });
   // Reports: preserve the exact visual system but replace only its content with the user's available professional artifacts.
   const reportRows=[
-    ['TX-001','Churn Analysis & Customer Intelligence','SQL + Python analysis of churn cohorts, revenue leakage and customer intelligence.','GITHUB','https://github.com/CurlyCodeX/Churn-Analysis-Customer-Intelligence'],
-    ['TX-002','Retail Sales Analytics EDA','Python + SQL exploratory analysis and Power BI dashboard work.','GITHUB','https://github.com/CurlyCodeX/retail-sales-analytics-eda'],
-  ];
-  const reportList=q('.dsn-list'); if(reportList){reportList.innerHTML=reportRows.map((x,i)=>`<a class="dsn-row" href="${x[4]}" ${x[3]==='GITHUB'||x[3]==='WEB'?'target="_blank" rel="noopener"':''} style="--sig:${[86,72,92,100][i]}%"><span class="dsn-id">${x[0]}</span><span class="dsn-body"><span class="dsn-name">${x[1]}</span><span class="dsn-desc"><span>${x[2]}</span></span></span><span class="dsn-wave" aria-hidden="true"></span><span class="dsn-meta"><span class="dsn-sig" aria-hidden="true"><i></i></span><span class="dsn-fmt">${x[3]}</span></span><span class="dsn-cta">Open <i>&#8594;</i></span></a>`).join('');}
-  const dsnStatus=q('.dsn-status'); if(dsnStatus) dsnStatus.innerHTML='<i class="dsn-led"></i>Signal lock · 04 packets';
+    [
+    'EDU-001',
+    'B.E. Artificial Intelligence & Machine Learning',
+    'St Joseph Engineering College, Mangaluru, Karnataka',
+    '2023 – 2027'
+  ],
+  [
+    'EDU-002',
+    'Pre-University (PCMB)',
+    'Bangurnagar Junior College, Dandeli, Karnataka',
+    '2023'
+  ]
+];
+const reportsHeading = q('#reports .section-title');
+
+if(reportsHeading){
+  reportsHeading.textContent = 'Education';
+}
+
+
+const reportList = q('.dsn-list');
+
+if(reportList){
+  reportList.innerHTML = reportRows.map((x,i) => `
+    <div class="dsn-row" style="--sig:${[92,78][i]}%">
+      <span class="dsn-id">${x[0]}</span>
+
+      <span class="dsn-body">
+        <span class="dsn-name">${x[1]}</span>
+        <span class="dsn-desc">
+          <span>${x[2]}</span>
+        </span>
+      </span>
+
+      <span class="dsn-wave" aria-hidden="true"></span>
+
+      <span class="dsn-meta">
+        <span class="dsn-sig" aria-hidden="true">
+          <i></i>
+        </span>
+        <span class="dsn-fmt">${x[3]}</span>
+      </span>
+
+      <span class="dsn-cta">Education</span>
+    </div>
+  `).join('');
+}
+const navLinks = doc.querySelectorAll('a');
+navLinks.forEach(a => {
+  if(a.textContent.trim().toLowerCase() === 'reports'){
+    a.textContent = 'Education';
+  }
+});
+  const dsnStatus=q('.dsn-status'); if(dsnStatus) dsnStatus.innerHTML='<i class="dsn-led"></i>Signal lock';
   // Experience data is embedded in the original visual's script. Replace the literal jobs array while keeping all animation/constellation code unchanged.
   html=doc.documentElement.outerHTML;
   html=html.replace(/const JOBS\s*=\s*\[[\s\S]*?\];/m,`const JOBS = [\n    { org: 'KultureHire', role: 'Data Analytics Intern', when: 'Ongoing' },\n    { org: 'SmartBridge x AICTE', role: 'Salesforce Developer Intern', when: 'May 2025 – July 2025' },\n    { org: 'St Joseph Engineering College', role: 'B.E. Artificial Intelligence & Machine Learning', when: '2023 – 2027' },\n    { org: 'Data Analytics', role: 'Python · SQL · Excel · Power BI', when: 'Current focus' },\n    { org: 'Projects', role: 'Practical Analytics & AI Portfolio', when: 'Ongoing' }\n  ];`);
