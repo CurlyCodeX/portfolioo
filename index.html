@@ -41,6 +41,17 @@
     if(a[1]) a[1].href='https://github.com/CurlyCodeX/';
     if(a[2]) a[2].href='https://www.linkedin.com/in/phelicia-dsilva-200374283';
   }
+  const resumeIcon = doc.createElement('a');
+resumeIcon.href = './Phelicia_Dsilva_Resume.docx';
+resumeIcon.download = 'Phelicia_Dsilva_Resume.docx';
+resumeIcon.textContent = '📄';
+resumeIcon.title = 'Download Resume';
+resumeIcon.setAttribute('aria-label', 'Download Resume');
+
+if(social){
+  social.appendChild(resumeIcon);
+}
+
   
   const projects=[
     ['Churn Analysis & Customer Intelligence','End-to-end churn analytics for an OTT subscription platform, integrating subscriber data and 20+ KPIs to quantify churn, MRR leakage and CLTV impact.','https://github.com/CurlyCodeX/Churn-Analysis-Customer-Intelligence','View project'],
